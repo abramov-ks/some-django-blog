@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} · Vibe Blog{% endblock %}
+
+{% block content %}
+  <article class="stack">
+    <div class="meta">
+      <a class="muted" href="{% url 'blog:post_list' %}">← Back to posts</a>
+      <span class="dot">·</span>
+      <span>{{ post.created_at|date:"M j, Y" }}</span>
+    </div>
+    <h1>{{ post.title }}</h1>
+    <div class="prose">
+      {{ post.content|linebreaks }}
+    </div>
+  </article>
+{% endblock %}
+
